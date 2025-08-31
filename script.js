@@ -111,7 +111,9 @@ const app = {
         }
     ],
 
+    fetchSong: function() {
 
+    },
     render: function() {
         const htmls = this.songs.map((song, index) => {
             return `
@@ -355,7 +357,7 @@ const app = {
         this.loadCurrentSong();
 
         // Render playlist
-        this.render();
+        // this.render();
 
         // Hiển thị trạng thái ban đầu của button repeat & random
         randomBtn.classList.toggle('active', this.isRandom);
