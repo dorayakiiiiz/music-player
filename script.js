@@ -111,6 +111,7 @@ const app = {
         }
     ],
 
+
     render: function() {
         const htmls = this.songs.map((song, index) => {
             return `
@@ -128,6 +129,7 @@ const app = {
             `
         });
         playlist.innerHTML = htmls.join('');
+
     },
     // định nghĩa ra các thuộc tính
     defineProperties: function() {
@@ -207,7 +209,7 @@ const app = {
         // Khi next song
         nextBtn.onclick = function() {
             if (_this.isRandom) {
-                _this.playRandomSong();
+                _this.randomSong();
             } else {
                 _this.nextSong();
             }
@@ -335,9 +337,9 @@ const app = {
         } while (newIndex === this.currentIndex);
 
         this.currentIndex = newIndex;
+        this.setConfig('currentIndex', this.currentIndex);
         this.resetTime();
         this.loadCurrentSong();
-        this.setConfig('currentIndex', this.currentIndex);
     },
     start: function() {
         // Gán cấu hình từ config vào ứng dụng
